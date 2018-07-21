@@ -5,13 +5,16 @@
 replicaCount: 1
 
 image:
-  repository: pavanv87/hello_world_netty
-  tag: latest
+  repository: pavanv87/go_webapp_nginx_cache
+  tag: v1
   pullPolicy: IfNotPresent
 
 service:
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8000"
   type: ClusterIP
-  port: 80
+  port: 8000
 
 ingress:
   enabled: false

@@ -1,4 +1,6 @@
 app:
-jenkins:
+  image:
+    repository: pavanv87/go_webapp_nginx_cache
+    tag: v10
 
     
