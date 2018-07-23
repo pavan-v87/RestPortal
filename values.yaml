@@ -2,5 +2,25 @@ app:
   image:
     repository: pavanv87/go_webapp_nginx_cache
     tag: v10
+prometheus:
+  alertmanager:
+    enabled: false
+  alertmanagerFiles:
+    alertmanager.yml: ""
+  kubeStateMetrics:
+    enabled: false
+  nodeExporter:
+    enabled: false
+  pushgateway:
+    enabled: false
+  server:
+    extraArgs:
+      storage.local.retention: 720h
+  serverFiles:
+    alerts: ""
+    prometheus.yml: ""
+    rules: ""
+  rbac:
+    create: false
 
     
