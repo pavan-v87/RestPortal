@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: pavanv87/go_webapp_nginx_cache
-  tag: v11
+  tag: v12
   pullPolicy: IfNotPresent
 
 service:
