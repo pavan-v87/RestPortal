@@ -685,26 +685,10 @@ serverFiles:
       - /etc/config/alerts
 
     scrape_configs:
-      - job_name: kubernetes-apiservers
-        scrape_interval: 5s
-        scrape_timeout: 5s
-        metrics_path: /metrics
-        scheme: https
-        kubernetes_sd_configs:
-        - api_server: null
-          role: endpoints
-          namespaces:
-            names: []
-        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
-        tls_config:
-          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-          insecure_skip_verify: false
-        relabel_configs:
-        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-          separator: ;
-          regex: default;kubernetes;https
-          replacement: $1
-          action: keep
+      - job_name: 'my_job'
+        static_configs:
+         - targets:
+           - 172.17.0.10:8080
 networkPolicy:
   ## Enable creation of NetworkPolicy resources.
   ##
